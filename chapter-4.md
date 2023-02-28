@@ -22,9 +22,22 @@ A private key can be applied to the digital fingerprint of a transaction to prod
 Elliptic curve multiplication is a type of function that cryptographers call a "one-way" function: it is easy to do in one direction (multiplication) and impossible to do in the reverse direction ("division", or finding the discrete logarithm). The owner of the private key can easily create the public key and then share it with the world knowing that no one can reverse the function and calculate the private key from the public key. This mathematical trick becomes the basis for unforgeable and secure digital signatures that prove ownership of bitcoin funds.
 
 
+## quick fax
+
+A Bitcoin address is not the same as a public key. Bitcoin addresses are derived from a public key using a one-way function.
+
+## pub key to btc address
+
+pub key - (SHA256) - (RIPEMD160) -> pub key hash - (Base58Check Encode) -> bitcoin address
 
 
 
 
 
 
+
+
+curl http://localhost:4444 \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"method":"eth_getTransactionReceipt","params":["0x630fc0d1df5d3e93d94cd27b6a4e989518304c9696016bd8483a67cc7111beb9"],"id":1,"jsonrpc":"2.0"}'
